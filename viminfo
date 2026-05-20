@@ -11,19 +11,19 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/document
+~MSle0~/\<export\>
 
 # Last Substitute Search Pattern:
 ~MSle0&test
 
 # Last Substitute String:
-$testing
+$
 
 # Command Line History (newest to oldest):
-:q
-|2,0,1771035964,,"q"
 :wq
-|2,0,1770689295,,"wq"
+|2,0,1779299862,,"wq"
+:q
+|2,0,1779296244,,"q"
 :w
 |2,0,1770663459,,"w"
 :w ~/Downloads
@@ -42,6 +42,8 @@ $testing
 |2,0,1766192077,,"so"
 
 # Search String History (newest to oldest):
+? \<export\>
+|2,1,1779296122,,"\\<export\\>"
 ?/document
 |2,1,1767121416,47,"document"
 ? test
@@ -55,265 +57,378 @@ $testing
 
 # Registers:
 "0	LINE	0
-	This is a (test) document.
-|3,0,0,1,1,0,1767119074,"This is a (test) document."
+	fe() {
+	  local file=$(fzf --preview "bat {}" --preview-window=right:60%)
+	  # Only open vim if a file was actually selected
+	  [ -n "$file" ] && vim "$file"
+	}
+	
+|3,0,0,1,6,0,1779296215,"fe() {","  local file=$(fzf --preview \"bat {}\" --preview-window=right:60%)","  # Only open vim if a file was actually selected","  [ -n \"$file\" ] && vim \"$file\"","}",""
 ""1	LINE	0
-	This is a testing document.
-|3,1,1,1,1,0,1767122185,"This is a testing document."
+	
+|3,1,1,1,1,0,1779298685,""
 "2	LINE	0
-	This is a (test) document.
-|3,0,2,1,1,0,1767118554,"This is a (test) document."
+	set -g status-position top
+|3,0,2,1,1,0,1779298683,"set -g status-position top"
 "3	LINE	0
-	This is a (test) document.
-|3,0,3,1,1,0,1767118542,"This is a (test) document."
+	# Set status bar on top
+|3,0,3,1,1,0,1779298683,"# Set status bar on top"
 "4	LINE	0
-	This is a (test) document.
-|3,0,4,1,1,0,1767118518,"This is a (test) document."
+	[plugin]
+	prepend_fetchers = [
+		{ id = "mime", url = "*", run = "mime", prio = "high", group = "file" },
+	]
+	
+|3,0,4,1,5,0,1779296449,"[plugin]","prepend_fetchers = [","	{ id = \"mime\", url = \"*\", run = \"mime\", prio = \"high\", group = \"file\" },","]",""
 "5	LINE	0
-	This is a (test) document.
-|3,0,5,1,1,0,1767118516,"This is a (test) document."
+	fe() { local file=$(fzf --preview "cat {}" --preview-window=right:60%) # Only open vim if a file was actually selected [ -n "$file" ] && vim "$file" }
+	
+	
+	# Open files from ~/.config using fzf + nvim
+	fec() {
+	  local file
+	  file=$(find ~/.config -type f | fzf --preview 'bat --style=numbers --color=always {} | head -500') || return
+	  nvim "$file"
+	}
+|3,0,5,1,9,0,1779287122,"fe() { local file=$(fzf --preview \"cat {}\" --preview-window=right:60%) # Only open vim if a file was actually selected [ -n \"$file\" ] && vim \"$file\" }","","","# Open files from ~/.config using fzf + nvim","fec() {","  local file","  file=$(find ~/.config -type f | fzf --preview 'bat --style=numbers --color=always {} | head -500') || return","  nvim \"$file\"","}"
 "6	LINE	0
-	This is a (test) document.
-|3,0,6,1,1,0,1767118515,"This is a (test) document."
-"7	LINE	0
-	This is a (test) document.
-|3,0,7,1,1,0,1767118513,"This is a (test) document."
-"8	LINE	0
-	This is a (test) document.
-|3,0,8,1,1,0,1767118498,"This is a (test) document."
-"9	CHAR	0
-	.
-	This 
-|3,0,9,0,2,0,1767118410,".","This "
-"-	CHAR	0
-	,fc00:bbbb:bbbb:bb01::b:c15/128
-|3,0,36,0,1,0,1767134331,",fc00:bbbb:bbbb:bb01::b:c15/128"
+	# fd (Find Directory)- including hidden directories
+	# fd() {
+	#   local dir
+	#   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+	# }
+	
+	# Open files in nvim using fzf
+	# fe() {
+	#   local file
+	#   file=$(fzf --preview 'bat --style=numbers --color=always {} | head -500') || return
+	#   nvim "$file"
+	# }
+|3,0,6,1,12,0,1779287108,"# fd (Find Directory)- including hidden directories","# fd() {","#   local dir","#   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd \"$dir\"","# }","","# Open files in nvim using fzf","# fe() {","#   local file","#   file=$(fzf --preview 'bat --style=numbers --color=always {} | head -500') || return","#   nvim \"$file\"","# }"
+"7	BLOCK	3
+	# fd
+	# fd
+	#   
+	#   
+	# }
+	
+	# Op
+	# fe
+	#   
+	#   
+	#   
+	# }
+|3,0,7,2,12,3,1779287096,"# fd","# fd","#   ","#   ","# }","","# Op","# fe","#   ","#   ","#   ","# }"
+"8	BLOCK	0
+	#
+	#
+	#
+	#
+	#
+	
+	#
+	#
+	#
+	#
+	#
+	#
+|3,0,8,2,12,0,1779287069,"#","#","#","#","#","","#","#","#","#","#","#"
+"9	LINE	0
+	
+|3,0,9,1,1,0,1779286249,""
+"-	LINE	0
+	[plugin]
+	prepend_fetchers = [
+		{ id = "mime", url = "*", run = "mime", prio = "high", group = "file" },
+	]
+	
+|3,0,36,1,5,0,1779296449,"[plugin]","prepend_fetchers = [","	{ id = \"mime\", url = \"*\", run = \"mime\", prio = \"high\", group = \"file\" },","]",""
 
 # File marks:
-'0  1  0  ~/.bashrc
-|4,48,1,0,1771035964,"~/.bashrc"
-'1  12  0  ~/.config/starship.toml
-|4,49,12,0,1771024201,"~/.config/starship.toml"
-'2  1  43  ~/test.txt
-|4,50,1,43,1770689295,"~/test.txt"
-'3  1  0  ~/Desktop/index.html
-|4,51,1,0,1770663834,"~/Desktop/index.html"
-'4  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,52,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
-'5  23  0  ~/Downloads/meraki-dns-troubleshooting.md
-|4,53,23,0,1770321232,"~/Downloads/meraki-dns-troubleshooting.md"
-'6  1  0  ~/Downloads/npm-ha-setup-guide_2.md
-|4,54,1,0,1768355111,"~/Downloads/npm-ha-setup-guide_2.md"
-'7  31  0  ~/Downloads/npm-ha-setup-guide_1.md
-|4,55,31,0,1768354326,"~/Downloads/npm-ha-setup-guide_1.md"
-'8  1  0  ~/Desktop/index.html
-|4,56,1,0,1768352104,"~/Desktop/index.html"
-'9  1  0  ~/Desktop/index.html
-|4,57,1,0,1768352104,"~/Desktop/index.html"
+'0  6  18  ~/.config/tmux/tmux.conf
+|4,48,6,18,1779299862,"~/.config/tmux/tmux.conf"
+'1  11  26  ~/.config/zsh/.zshrc
+|4,49,11,26,1779299667,"~/.config/zsh/.zshrc"
+'2  6  0  ~/.config/tmux/tmux.conf
+|4,50,6,0,1779298693,"~/.config/tmux/tmux.conf"
+'3  7  25  ~/.config/tmux/tmux.conf
+|4,51,7,25,1779298280,"~/.config/tmux/tmux.conf"
+'4  7  25  ~/.config/tmux/tmux.conf
+|4,52,7,25,1779298280,"~/.config/tmux/tmux.conf"
+'5  2  79  ~/.config/yazi/README.md
+|4,53,2,79,1779296854,"~/.config/yazi/README.md"
+'6  13  0  ~/.config/yazi/yazi.toml
+|4,54,13,0,1779296452,"~/.config/yazi/yazi.toml"
+'7  12  0  ~/.config/yazi
+|4,55,12,0,1779296244,"~/.config/yazi"
+'8  1  0  ~/.config/zsh/LICENSE
+|4,56,1,0,1779296189,"~/.config/zsh/LICENSE"
+'9  8  0  ~/.config/zsh/.zshrc
+|4,57,8,0,1779296154,"~/.config/zsh/.zshrc"
 
 # Jumplist (newest first):
--'  1  0  ~/.bashrc
-|4,39,1,0,1771035964,"~/.bashrc"
--'  12  0  ~/.config/starship.toml
-|4,39,12,0,1771024201,"~/.config/starship.toml"
--'  12  0  ~/.config/starship.toml
-|4,39,12,0,1771024201,"~/.config/starship.toml"
--'  12  0  ~/.config/starship.toml
-|4,39,12,0,1771024201,"~/.config/starship.toml"
--'  12  0  ~/.config/starship.toml
-|4,39,12,0,1771024201,"~/.config/starship.toml"
--'  1  0  ~/.config/starship.toml
-|4,39,1,0,1771024190,"~/.config/starship.toml"
--'  1  0  ~/.config/starship.toml
-|4,39,1,0,1771024190,"~/.config/starship.toml"
--'  1  0  ~/.config/starship.toml
-|4,39,1,0,1771024190,"~/.config/starship.toml"
--'  1  0  ~/.config/starship.toml
-|4,39,1,0,1771024190,"~/.config/starship.toml"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  43  ~/test.txt
-|4,39,1,43,1770689295,"~/test.txt"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  1  0  ~/Desktop/index.html
-|4,39,1,0,1770663834,"~/Desktop/index.html"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  34  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,34,0,1770663512,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
--'  1  0  ~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md
-|4,39,1,0,1770663407,"~/Downloads/UPS-LED-CLUSTER-SHUTDOWN.md"
+-'  6  18  ~/.config/tmux/tmux.conf
+|4,39,6,18,1779299862,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779299840,"~/.config/tmux/tmux.conf"
+-'  11  26  ~/.config/zsh/.zshrc
+|4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
+-'  11  26  ~/.config/zsh/.zshrc
+|4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1779299633,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1779299633,"~/.config/zsh/.zshrc"
+-'  6  0  ~/.config/tmux/tmux.conf
+|4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
+-'  6  0  ~/.config/tmux/tmux.conf
+|4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298615,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298615,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298238,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298238,"~/.config/tmux/tmux.conf"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  13  0  ~/.config/yazi/yazi.toml
+|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
+-'  1  0  ~/.config/yazi/yazi.toml
+|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
 
 # History of marks within files (newest to oldest):
+
+> ~/.config/tmux/tmux.conf
+	*	1779299861	0
+	"	6	18
+	^	6	19
+	.	6	18
+	+	6	18
+
+> ~/.config/zsh/.zshrc
+	*	1779299665	0
+	"	11	26
+	^	11	27
+	.	11	26
+	+	8	0
+	+	7	0
+	+	8	0
+	+	11	26
+
+> ~/.config/yazi/README.md
+	*	1779296852	0
+	"	2	79
+	^	2	80
+	.	2	79
+	+	2	71
+	+	1	59
+	+	2	79
+
+> ~/.config/yazi/yazi.toml
+	*	1779296450	0
+	"	13	0
+	^	15	20
+	.	13	0
+	+	18	0
+	+	15	20
+	+	13	0
+
+> ~/.config/zsh/LICENSE
+	*	1779296182	0
+	"	1	0
+
+> ~/.config/zsh/.zaliases
+	*	1779290263	0
+	"	61	0
+	^	74	1
+	.	74	0
+	+	62	0
+	+	62	3
+	+	62	30
+	+	74	0
+
+> ~/.config/zsh/README.md
+	*	1779288467	0
+	"	2	0
+	^	2	0
+	.	1	70
+	+	1	70
+
+> ~/.config/README.md
+	*	1779288422	0
+	"	1	0
 
 > ~/.bashrc
 	*	1771035960	0
