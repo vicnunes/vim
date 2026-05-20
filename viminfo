@@ -21,7 +21,7 @@ $
 
 # Command Line History (newest to oldest):
 :wq
-|2,0,1779299862,,"wq"
+|2,0,1779318679,,"wq"
 :q
 |2,0,1779296244,,"q"
 :w
@@ -56,17 +56,12 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-	fe() {
-	  local file=$(fzf --preview "bat {}" --preview-window=right:60%)
-	  # Only open vim if a file was actually selected
-	  [ -n "$file" ] && vim "$file"
-	}
+""0	LINE	0
 	
-|3,0,0,1,6,0,1779296215,"fe() {","  local file=$(fzf --preview \"bat {}\" --preview-window=right:60%)","  # Only open vim if a file was actually selected","  [ -n \"$file\" ] && vim \"$file\"","}",""
-""1	LINE	0
+|3,1,0,1,1,0,1779318653,""
+"1	LINE	0
 	
-|3,1,1,1,1,0,1779298685,""
+|3,0,1,1,1,0,1779298685,""
 "2	LINE	0
 	set -g status-position top
 |3,0,2,1,1,0,1779298683,"set -g status-position top"
@@ -145,36 +140,54 @@ $
 |3,0,36,1,5,0,1779296449,"[plugin]","prepend_fetchers = [","	{ id = \"mime\", url = \"*\", run = \"mime\", prio = \"high\", group = \"file\" },","]",""
 
 # File marks:
-'0  6  18  ~/.config/tmux/tmux.conf
-|4,48,6,18,1779299862,"~/.config/tmux/tmux.conf"
-'1  11  26  ~/.config/zsh/.zshrc
-|4,49,11,26,1779299667,"~/.config/zsh/.zshrc"
-'2  6  0  ~/.config/tmux/tmux.conf
-|4,50,6,0,1779298693,"~/.config/tmux/tmux.conf"
-'3  7  25  ~/.config/tmux/tmux.conf
-|4,51,7,25,1779298280,"~/.config/tmux/tmux.conf"
+'0  1  22  ~/.config/vim/undo/about.txt
+|4,48,1,22,1779318679,"~/.config/vim/undo/about.txt"
+'1  6  18  ~/.config/tmux/tmux.conf
+|4,49,6,18,1779299862,"~/.config/tmux/tmux.conf"
+'2  11  26  ~/.config/zsh/.zshrc
+|4,50,11,26,1779299667,"~/.config/zsh/.zshrc"
+'3  6  0  ~/.config/tmux/tmux.conf
+|4,51,6,0,1779298693,"~/.config/tmux/tmux.conf"
 '4  7  25  ~/.config/tmux/tmux.conf
 |4,52,7,25,1779298280,"~/.config/tmux/tmux.conf"
-'5  2  79  ~/.config/yazi/README.md
-|4,53,2,79,1779296854,"~/.config/yazi/README.md"
-'6  13  0  ~/.config/yazi/yazi.toml
-|4,54,13,0,1779296452,"~/.config/yazi/yazi.toml"
-'7  12  0  ~/.config/yazi
-|4,55,12,0,1779296244,"~/.config/yazi"
-'8  1  0  ~/.config/zsh/LICENSE
-|4,56,1,0,1779296189,"~/.config/zsh/LICENSE"
-'9  8  0  ~/.config/zsh/.zshrc
-|4,57,8,0,1779296154,"~/.config/zsh/.zshrc"
+'5  7  25  ~/.config/tmux/tmux.conf
+|4,53,7,25,1779298280,"~/.config/tmux/tmux.conf"
+'6  2  79  ~/.config/yazi/README.md
+|4,54,2,79,1779296854,"~/.config/yazi/README.md"
+'7  13  0  ~/.config/yazi/yazi.toml
+|4,55,13,0,1779296452,"~/.config/yazi/yazi.toml"
+'8  12  0  ~/.config/yazi
+|4,56,12,0,1779296244,"~/.config/yazi"
+'9  1  0  ~/.config/zsh/LICENSE
+|4,57,1,0,1779296189,"~/.config/zsh/LICENSE"
 
 # Jumplist (newest first):
+-'  1  22  ~/.config/vim/undo/about.txt
+|4,39,1,22,1779318679,"~/.config/vim/undo/about.txt"
+-'  12  0  ~/.config/vim
+|4,39,12,0,1779318652,"~/.config/vim"
+-'  1  0  ~/.config/vim
+|4,39,1,0,1779318647,"~/.config/vim"
 -'  6  18  ~/.config/tmux/tmux.conf
 |4,39,6,18,1779299862,"~/.config/tmux/tmux.conf"
+-'  6  18  ~/.config/tmux/tmux.conf
+|4,39,6,18,1779299862,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779299840,"~/.config/tmux/tmux.conf"
 -'  1  0  ~/.config/tmux/tmux.conf
 |4,39,1,0,1779299840,"~/.config/tmux/tmux.conf"
 -'  11  26  ~/.config/zsh/.zshrc
 |4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
 -'  11  26  ~/.config/zsh/.zshrc
 |4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
+-'  11  26  ~/.config/zsh/.zshrc
+|4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
+-'  11  26  ~/.config/zsh/.zshrc
+|4,39,11,26,1779299667,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1779299633,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1779299633,"~/.config/zsh/.zshrc"
 -'  1  0  ~/.config/zsh/.zshrc
 |4,39,1,0,1779299633,"~/.config/zsh/.zshrc"
 -'  1  0  ~/.config/zsh/.zshrc
@@ -183,6 +196,14 @@ $
 |4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
 -'  6  0  ~/.config/tmux/tmux.conf
 |4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
+-'  6  0  ~/.config/tmux/tmux.conf
+|4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
+-'  6  0  ~/.config/tmux/tmux.conf
+|4,39,6,0,1779298693,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298615,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298615,"~/.config/tmux/tmux.conf"
 -'  1  0  ~/.config/tmux/tmux.conf
 |4,39,1,0,1779298615,"~/.config/tmux/tmux.conf"
 -'  1  0  ~/.config/tmux/tmux.conf
@@ -193,6 +214,16 @@ $
 |4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
 -'  7  25  ~/.config/tmux/tmux.conf
 |4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  7  25  ~/.config/tmux/tmux.conf
+|4,39,7,25,1779298280,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298238,"~/.config/tmux/tmux.conf"
+-'  1  0  ~/.config/tmux/tmux.conf
+|4,39,1,0,1779298238,"~/.config/tmux/tmux.conf"
 -'  1  0  ~/.config/tmux/tmux.conf
 |4,39,1,0,1779298238,"~/.config/tmux/tmux.conf"
 -'  1  0  ~/.config/tmux/tmux.conf
@@ -229,6 +260,70 @@ $
 |4,39,2,79,1779296854,"~/.config/yazi/README.md"
 -'  2  79  ~/.config/yazi/README.md
 |4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  2  79  ~/.config/yazi/README.md
+|4,39,2,79,1779296854,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
+-'  1  0  ~/.config/yazi/README.md
+|4,39,1,0,1779296684,"~/.config/yazi/README.md"
 -'  1  0  ~/.config/yazi/README.md
 |4,39,1,0,1779296684,"~/.config/yazi/README.md"
 -'  1  0  ~/.config/yazi/README.md
@@ -267,108 +362,15 @@ $
 |4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
 -'  13  0  ~/.config/yazi/yazi.toml
 |4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  13  0  ~/.config/yazi/yazi.toml
-|4,39,13,0,1779296452,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
--'  1  0  ~/.config/yazi/yazi.toml
-|4,39,1,0,1779296408,"~/.config/yazi/yazi.toml"
 
 # History of marks within files (newest to oldest):
+
+> ~/.config/vim/undo/about.txt
+	*	1779318678	0
+	"	1	22
+	^	1	23
+	.	1	22
+	+	1	22
 
 > ~/.config/tmux/tmux.conf
 	*	1779299861	0
