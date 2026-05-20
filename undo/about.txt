@@ -1,1 +1,1 @@
-Tracks vim undo file(s)
+Tracks vim changes (undo) file(s)
